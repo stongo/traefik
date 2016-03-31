@@ -1,5 +1,5 @@
-hash: fffa87220825895f7e3a6ceed3b13ecbf6bc934ab072fc9be3d00e3eef411ecb
-updated: 2016-04-13T14:05:41.300658168+02:00
+hash: 577c3127b42e7e724949f704435426a31634e80ba2f1c4e9a5b19053d7d19977
+updated: 2016-04-17T22:10:11.32030675+02:00
 imports:
 - name: github.com/alecthomas/template
   version: b867cc6ab45cece8143cfcc6fc9c77cf3f2c23c0
@@ -29,6 +29,7 @@ imports:
   - memmetrics
   - roundrobin
   - utils
+  - connlimit
   - stream
 - name: github.com/coreos/go-etcd
   version: cc90c7b091275e606ad0ca7102a23fb2072f3f5e
@@ -82,8 +83,9 @@ imports:
   - runconfig
   - utils
   - volume
+  - pkg/mount
 - name: github.com/docker/engine-api
-  version: 8924d6900370b4c7e7984be5adc61f50a80d7537
+  version: 26cdffeca716ae4df98070051a852b3198d7d153
   subpackages:
   - client
   - types
@@ -100,7 +102,7 @@ imports:
   - types/versions
   - types/blkiodev
 - name: github.com/docker/go-connections
-  version: f549a9393d05688dff0992ef3efd8bbe6c628aeb
+  version: 5b7154ba2efe13ff86ae8830a9e7cb120b080d6e
   subpackages:
   - nat
   - sockets
@@ -127,14 +129,44 @@ imports:
   version: 3f9db97f856818214da2e1057f8ad84803971cff
 - name: github.com/gambol99/go-marathon
   version: ade11d1dc2884ee1f387078fc28509559b6235d1
+- name: github.com/ghodss/yaml
+  version: 73d445a93680fa1a78ae23a5839bad48f32ba1ee
 - name: github.com/go-check/check
   version: 11d3bc7aa68e238947792f30573146a3231fc0f1
+- name: github.com/gogo/protobuf
+  version: 82d16f734d6d871204a3feb1a73cb220cc92574c
+  subpackages:
+  - gogoproto
+  - plugin/defaultcheck
+  - plugin/description
+  - plugin/embedcheck
+  - plugin/enumstringer
+  - plugin/equal
+  - plugin/face
+  - plugin/gostring
+  - plugin/grpc
+  - plugin/marshalto
+  - plugin/oneofcheck
+  - plugin/populate
+  - plugin/size
+  - plugin/stringer
+  - plugin/testgen
+  - plugin/union
+  - plugin/unmarshal
+  - proto
+  - protoc-gen-gogo/descriptor
+  - protoc-gen-gogo/generator
+  - protoc-gen-gogo/plugin
+  - sortkeys
+  - vanity
 - name: github.com/golang/glog
   version: fca8c8854093a154ff1eb580aae10276ad6b1b5f
 - name: github.com/google/go-querystring
   version: 9235644dd9e52eeae6fa48efd539fdc351a0af53
   subpackages:
   - query
+- name: github.com/google/gofuzz
+  version: bbcb9da2d746f8bdbd6a936686a0a6067ada0ec5
 - name: github.com/gorilla/context
   version: 215affda49addc4c8ef7e2534915df2c8c35c6cd
 - name: github.com/gorilla/handlers
@@ -148,7 +180,7 @@ imports:
   subpackages:
   - api
 - name: github.com/hashicorp/hcl
-  version: 2604f3bda7e8960c1be1063709e7d7f0765048d0
+  version: 27a57f2605e04995c111273c263d51cee60d9bc4
   subpackages:
   - hcl/ast
   - hcl/parser
@@ -177,13 +209,19 @@ imports:
 - name: github.com/Microsoft/go-winio
   version: 862b6557927a5c5c81e411c12aa6de7e566cbb7a
 - name: github.com/miekg/dns
-  version: dd83d5cbcfd986f334b2747feeb907e281318fdf
+  version: 89d9c5e74bc17cc9edb5d44d4f2f93a7ac77e365
 - name: github.com/mitchellh/mapstructure
   version: d2dd0262208475919e1a362f675cfc0e7c10e905
 - name: github.com/opencontainers/runc
-  version: 4ab132458fc3e9dbeea624153e0331952dc4c8d5
+  version: 7ca2aa4873aea7cb4265b1726acb24b90d8726c6
   subpackages:
   - libcontainer/user
+  - libcontainer/cgroups/fs
+  - libcontainer/configs
+  - libcontainer/cgroups
+  - libcontainer/system
+- name: github.com/pborman/uuid
+  version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/pmezard/go-difflib
   version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
   subpackages:
@@ -203,7 +241,7 @@ imports:
 - name: github.com/spf13/jwalterweatherman
   version: 33c24e77fb80341fe7130ee7c594256ff08ccc46
 - name: github.com/spf13/pflag
-  version: 1f296710f879815ad9e6d39d947c828c3e4b4c3d
+  version: 8f6a28b0916586e7f22fe931ae2fcfc380b1c0e6
 - name: github.com/spf13/viper
   version: a212099cbe6fbe8d07476bfda8d2d39b6ff8f325
 - name: github.com/streamrail/concurrent-map
@@ -217,10 +255,14 @@ imports:
   - assert
 - name: github.com/thoas/stats
   version: 54ed61c2b47e263ae2f01b86837b0c4bd1da28e8
+- name: github.com/ugorji/go
+  version: ea9cd21fa0bc41ee4bdd50ac7ed8cbc7ea2ed960
+  subpackages:
+  - codec
 - name: github.com/unrolled/render
   version: 26b4e3aac686940fe29521545afad9966ddfc80c
 - name: github.com/vdemeester/docker-events
-  version: 6ea3f28df37f29a47498bc8b32b36ad8491dbd37
+  version: 1ecaca5890ef1ffd266fcbfdbe43073ef105704b
 - name: github.com/vdemeester/libkermit
   version: 7e4e689a6fa9281e0fb9b7b9c297e22d5342a5ec
 - name: github.com/vdemeester/shakers
@@ -243,11 +285,11 @@ imports:
 - name: github.com/wendal/errors
   version: f66c77a7882b399795a8987ebf87ef64a427417e
 - name: github.com/xenolf/lego
-  version: 23e88185c255e95a106835d80e76e5a3a66d7c54
+  version: 094e3d41bb0422746c31a8b0b2a2daeeb87408a7
   subpackages:
   - acme
 - name: golang.org/x/crypto
-  version: d68c3ecb62c850b645dc072a8d78006286bf81ca
+  version: 1777f3ba8c1fed80fcaec3317e3aaa4f627764d2
   subpackages:
   - ocsp
 - name: golang.org/x/net
@@ -275,4 +317,41 @@ imports:
   - json
 - name: gopkg.in/yaml.v2
   version: 7ad95dd0798a40da1ccdff6dff35fd177b5edf40
+  subpackages:
+  - libcontainer/user
+- name: k8s.io/kubernetes
+  version: 934d7ebb33032eb19dc52e07fe5e8813e43fe25f
+  subpackages:
+  - pkg/api
+  - pkg/apis/extensions
+  - pkg/api/meta
+  - pkg/api/resource
+  - pkg/api/unversioned
+  - pkg/auth/user
+  - pkg/conversion
+  - pkg/fields
+  - pkg/labels
+  - pkg/runtime
+  - pkg/runtime/serializer
+  - pkg/types
+  - pkg/util
+  - pkg/util/intstr
+  - pkg/util/rand
+  - pkg/util/sets
+  - pkg/util/errors
+  - third_party/forked/reflect
+  - pkg/util/validation
+  - pkg/conversion/queryparams
+  - pkg/util/json
+  - pkg/runtime/serializer/json
+  - pkg/runtime/serializer/protobuf
+  - pkg/runtime/serializer/recognizer
+  - pkg/runtime/serializer/streaming
+  - pkg/runtime/serializer/versioning
+  - pkg/util/wait
+  - pkg/util/framer
+  - pkg/util/yaml
+  - pkg/util/runtime
+- name: speter.net/go/exp/math/dec/inf
+  version: 42ca6cd68aa922bc3f32f1e056e61b65945d9ad7
 devImports: []

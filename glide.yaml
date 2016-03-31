@@ -103,8 +103,6 @@ import:
     ref:     c7477ad8e330bef55bf1ebe300cf8aa67c492d1b
   - package: gopkg.in/yaml.v2
     ref:     7ad95dd0798a40da1ccdff6dff35fd177b5edf40
-  - package: github.com/opencontainers/runc
-    ref:     4ab132458fc3e9dbeea624153e0331952dc4c8d5
     subpackages:
       - libcontainer/user
   - package: github.com/gorilla/mux
@@ -175,3 +173,5 @@ import:
   - package: github.com/docker/go-units
   - package: github.com/mailgun/multibuf
   - package: github.com/streamrail/concurrent-map
+  - package: k8s.io/kubernetes/pkg/api
+  - package: k8s.io/kubernetes/pkg/apis/extensions
