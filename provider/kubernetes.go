@@ -5,8 +5,6 @@ import (
 	"github.com/containous/traefik/provider/k8s"
 	"github.com/containous/traefik/safe"
 	"github.com/containous/traefik/types"
-	"k8s.io/kubernetes/pkg/api"
-	"k8s.io/kubernetes/pkg/apis/extensions"
 	"net/http"
 	"time"
 )
@@ -28,7 +26,7 @@ func (provider *Kubernetes) Provide(configurationChan chan<- types.ConfigMessage
 
 	go func() {
 		for {
-			ingresses, err := k8sClient.GetIngresses(func(ingress extensions.Ingress) bool {
+			ingresses, err := k8sClient.GetIngresses(func(ingress k8s.Ingress) bool {
 				return true
 			})
 			if err != nil {
@@ -63,7 +61,7 @@ func (provider *Kubernetes) Provide(configurationChan chan<- types.ConfigMessage
 								Rule: "Path:" + pa.Path,
 							}
 						}
-						services, err := k8sClient.GetServices(func(service api.Service) bool {
+						services, err := k8sClient.GetServices(func(service k8s.Service) bool {
 							return service.Name == pa.Backend.ServiceName
 						})
 						if err != nil {

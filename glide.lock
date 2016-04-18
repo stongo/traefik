@@ -1,5 +1,5 @@
-hash: 577c3127b42e7e724949f704435426a31634e80ba2f1c4e9a5b19053d7d19977
-updated: 2016-04-17T22:10:11.32030675+02:00
+hash: d12ef1500a32a89f27fc3f72f05d4cef72e845bda90ce1aa7777d03a99449a3f
+updated: 2016-04-18T09:36:55.67574271+02:00
 imports:
 - name: github.com/alecthomas/template
   version: b867cc6ab45cece8143cfcc6fc9c77cf3f2c23c0
@@ -83,9 +83,8 @@ imports:
   - runconfig
   - utils
   - volume
-  - pkg/mount
 - name: github.com/docker/engine-api
-  version: 26cdffeca716ae4df98070051a852b3198d7d153
+  version: 9b12a765bbcbfbb9ab937fde4f6082bca48e97db
   subpackages:
   - client
   - types
@@ -129,44 +128,14 @@ imports:
   version: 3f9db97f856818214da2e1057f8ad84803971cff
 - name: github.com/gambol99/go-marathon
   version: ade11d1dc2884ee1f387078fc28509559b6235d1
-- name: github.com/ghodss/yaml
-  version: 73d445a93680fa1a78ae23a5839bad48f32ba1ee
 - name: github.com/go-check/check
   version: 11d3bc7aa68e238947792f30573146a3231fc0f1
-- name: github.com/gogo/protobuf
-  version: 82d16f734d6d871204a3feb1a73cb220cc92574c
-  subpackages:
-  - gogoproto
-  - plugin/defaultcheck
-  - plugin/description
-  - plugin/embedcheck
-  - plugin/enumstringer
-  - plugin/equal
-  - plugin/face
-  - plugin/gostring
-  - plugin/grpc
-  - plugin/marshalto
-  - plugin/oneofcheck
-  - plugin/populate
-  - plugin/size
-  - plugin/stringer
-  - plugin/testgen
-  - plugin/union
-  - plugin/unmarshal
-  - proto
-  - protoc-gen-gogo/descriptor
-  - protoc-gen-gogo/generator
-  - protoc-gen-gogo/plugin
-  - sortkeys
-  - vanity
 - name: github.com/golang/glog
   version: fca8c8854093a154ff1eb580aae10276ad6b1b5f
 - name: github.com/google/go-querystring
   version: 9235644dd9e52eeae6fa48efd539fdc351a0af53
   subpackages:
   - query
-- name: github.com/google/gofuzz
-  version: bbcb9da2d746f8bdbd6a936686a0a6067ada0ec5
 - name: github.com/gorilla/context
   version: 215affda49addc4c8ef7e2534915df2c8c35c6cd
 - name: github.com/gorilla/handlers
@@ -213,15 +182,9 @@ imports:
 - name: github.com/mitchellh/mapstructure
   version: d2dd0262208475919e1a362f675cfc0e7c10e905
 - name: github.com/opencontainers/runc
-  version: 7ca2aa4873aea7cb4265b1726acb24b90d8726c6
+  version: 4ab132458fc3e9dbeea624153e0331952dc4c8d5
   subpackages:
   - libcontainer/user
-  - libcontainer/cgroups/fs
-  - libcontainer/configs
-  - libcontainer/cgroups
-  - libcontainer/system
-- name: github.com/pborman/uuid
-  version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/pmezard/go-difflib
   version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
   subpackages:
@@ -255,10 +218,6 @@ imports:
   - assert
 - name: github.com/thoas/stats
   version: 54ed61c2b47e263ae2f01b86837b0c4bd1da28e8
-- name: github.com/ugorji/go
-  version: ea9cd21fa0bc41ee4bdd50ac7ed8cbc7ea2ed960
-  subpackages:
-  - codec
 - name: github.com/unrolled/render
   version: 26b4e3aac686940fe29521545afad9966ddfc80c
 - name: github.com/vdemeester/docker-events
@@ -285,7 +244,7 @@ imports:
 - name: github.com/wendal/errors
   version: f66c77a7882b399795a8987ebf87ef64a427417e
 - name: github.com/xenolf/lego
-  version: 094e3d41bb0422746c31a8b0b2a2daeeb87408a7
+  version: 684400fe76a813e78d87803a62bc04d977c501d2
   subpackages:
   - acme
 - name: golang.org/x/crypto
@@ -317,41 +276,4 @@ imports:
   - json
 - name: gopkg.in/yaml.v2
   version: 7ad95dd0798a40da1ccdff6dff35fd177b5edf40
-  subpackages:
-  - libcontainer/user
-- name: k8s.io/kubernetes
-  version: 934d7ebb33032eb19dc52e07fe5e8813e43fe25f
-  subpackages:
-  - pkg/api
-  - pkg/apis/extensions
-  - pkg/api/meta
-  - pkg/api/resource
-  - pkg/api/unversioned
-  - pkg/auth/user
-  - pkg/conversion
-  - pkg/fields
-  - pkg/labels
-  - pkg/runtime
-  - pkg/runtime/serializer
-  - pkg/types
-  - pkg/util
-  - pkg/util/intstr
-  - pkg/util/rand
-  - pkg/util/sets
-  - pkg/util/errors
-  - third_party/forked/reflect
-  - pkg/util/validation
-  - pkg/conversion/queryparams
-  - pkg/util/json
-  - pkg/runtime/serializer/json
-  - pkg/runtime/serializer/protobuf
-  - pkg/runtime/serializer/recognizer
-  - pkg/runtime/serializer/streaming
-  - pkg/runtime/serializer/versioning
-  - pkg/util/wait
-  - pkg/util/framer
-  - pkg/util/yaml
-  - pkg/util/runtime
-- name: speter.net/go/exp/math/dec/inf
-  version: 42ca6cd68aa922bc3f32f1e056e61b65945d9ad7
 devImports: []
